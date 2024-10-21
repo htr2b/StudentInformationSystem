@@ -1,0 +1,96 @@
+#homework-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.button {
+    margin-right: 10px;
+}
+
+#homework-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.homework-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.homework-item h3 {
+    margin-top: 0;
+    color: #ff9800;
+}
+
+.homework-item p {
+    line-height: 1.6;
+}
+
+.homework-item .due-date {
+    font-size: 0.9em;
+    color: #888;
+}
+
+.homework-item .actions {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.homework-item .actions button {
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-left: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.homework-item .actions button:hover {
+    background-color: #1976D2;
+}
+
+.homework-item .actions .delete-button {
+    background-color: #f44336;
+}
+
+.homework-item .actions .delete-button:hover {
+    background-color: #d32f2f;
+}
+
+@media (max-width: 768px) {
+    .homework-item {
+        padding: 15px;
+    }
+
+    .actions {
+        position: static;
+        margin-top: 10px;
+    }
+}

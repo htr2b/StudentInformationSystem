@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ödevler - Öğrenci Bilgilendirme Sistemi</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/homework.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <header>
+        <h1>Ödevler</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="reminders.html">Hatırlatıcılar</a></li>
+                <li><a href="schedule.html">Ders Programı</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="card">
+            <h2>Ödev Yönetimi</h2>
+            <form id="homework-form">
+                <input type="hidden" id="homework-id">
+                <div class="form-group">
+                    <label for="subject">Ders</label>
+                    <input type="text" id="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Açıklama</label>
+                    <textarea id="description" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="due-date">Son Teslim Tarihi</label>
+                    <input type="date" id="due-date" required>
+                </div>
+                <button type="submit" class="button" id="submit-button">Ödev Ekle</button>
+                <button type="button" class="button" id="cancel-button" style="display: none;">İptal</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h2>Mevcut Ödevler</h2>
+            <div id="homework-container">
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Öğrenci Bilgilendirme Sistemi</p>
+    </footer>
+
+    <script src="js/homework.js"></script>
+</body>
+</html>

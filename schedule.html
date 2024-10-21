@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ders Programı - Öğrenci Bilgilendirme Sistemi</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/schedule.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <header>
+        <h1>Ders Programı</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="homework.html">Ödevler</a></li>
+                <li><a href="reminders.html">Hatırlatıcılar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="card">
+            <h2>Ders Programını Yönet</h2>
+            <form id="schedule-form">
+                <input type="hidden" id="schedule-id">
+                <div class="form-group">
+                    <label for="day">Gün</label>
+                    <select id="day" required>
+                        <option value="">Seçiniz</option>
+                        <option value="Pazartesi">Pazartesi</option>
+                        <option value="Salı">Salı</option>
+                        <option value="Çarşamba">Çarşamba</option>
+                        <option value="Perşembe">Perşembe</option>
+                        <option value="Cuma">Cuma</option>
+                        <option value="Cumartesi">Cumartesi</option>
+                        <option value="Pazar">Pazar</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Ders</label>
+                    <input type="text" id="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">Saat</label>
+                    <input type="time" id="time" required>
+                </div>
+                <button type="submit" class="button" id="submit-button">Ders Ekle</button>
+                <button type="button" class="button" id="cancel-button" style="display: none;">İptal</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h2>Mevcut Ders Programı</h2>
+            <div id="schedule-container">
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Öğrenci Bilgilendirme Sistemi</p>
+    </footer>
+
+    <script src="js/schedule.js"></script>
+</body>
+</html>

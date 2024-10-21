@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Öğrenci Bilgilendirme Sistemi</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <header>
+        <h1>Öğrenci Bilgilendirme Sistemi</h1>
+        <nav>
+            <ul>
+                <li><a href="homework.html">Ödevler</a></li>
+                <li><a href="reminders.html">Hatırlatıcılar</a></li>
+                <li><a href="schedule.html">Ders Programı</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="card">
+            <h2>Hoş Geldiniz!</h2>
+            <p>Öğrenci Bilgilendirme Sistemimize hoş geldiniz. Aşağıdaki menüden istediğiniz bölüme geçiş yapabilirsiniz.</p>
+            <a href="homework.html" class="button">Ödevleri Görüntüle</a>
+            <a href="reminders.html" class="button">Hatırlatıcıları Görüntüle</a>
+            <a href="schedule.html" class="button">Ders Programını Görüntüle</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Öğrenci Bilgilendirme Sistemi</p>
+    </footer>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => {
+                        console.log('ServiceWorker kayıt edildi:', registration);
+                    })
+                    .catch(error => {
+                        console.log('ServiceWorker kayıt hatası:', error);
+                    });
+            });
+        }
+    </script>
+    <script src="js/script.js"></script>
+</body>
+</html>
