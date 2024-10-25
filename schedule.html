@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ders Programı - Öğrenci Bilgilendirme Sistemi</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/schedule.css">
     <link rel="manifest" href="manifest.json">
 </head>
 <body>
@@ -24,7 +23,6 @@
         <div class="card">
             <h2>Ders Programını Yönet</h2>
             <form id="schedule-form">
-                <input type="hidden" id="schedule-id">
                 <div class="form-group">
                     <label for="day">Gün</label>
                     <select id="day" required>
@@ -54,6 +52,7 @@
         <div class="card">
             <h2>Mevcut Ders Programı</h2>
             <div id="schedule-container">
+                <!-- Ders programı listesi buraya eklenecek -->
             </div>
         </div>
     </main>
@@ -61,7 +60,5 @@
     <footer>
         <p>&copy; 2024 Öğrenci Bilgilendirme Sistemi</p>
     </footer>
-
-    <script src="js/schedule.js"></script>
 </body>
 </html>
