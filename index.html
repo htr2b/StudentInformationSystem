@@ -6,49 +6,74 @@
     <title>Öğrenci Bilgilendirme Sistemi</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="manifest" href="manifest.json">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Öğrenci Bilgilendirme Sistemi</h1>
-        <nav>
-            <ul>
-                <li><a href="homework.html">Ödevler</a></li>
-                <li><a href="reminders.html">Hatırlatıcılar</a></li>
-                <li><a href="schedule.html">Ders Programı</a></li>
-            </ul>
-        </nav>
+    <header class="header">
+        <button id="menu-button" class="menu-button">☰</button>
+        <h1 class="header-title">Öğrenci Bilgilendirme Sistemi</h1>
     </header>
 
+    <!-- Yan Menü -->
+    <aside id="sidebar" class="sidebar">
+        <nav>
+            <h2>Menü</h2>
+            <ul class="nav-list">
+                <li><a href="homework.html" class="button">Ödevleri Görüntüle</a></li>
+                <li><a href="reminders.html" class="button">Hatırlatıcıları Görüntüle</a></li>
+                <li><a href="schedule.html" class="button">Ders Programını Görüntüle</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Giriş Yap İçeriği -->
     <main>
         <section class="card">
-            <h2>Hoş Geldiniz!</h2>
-            <p>Öğrenci Bilgilendirme Sistemimize hoş geldiniz. Aşağıdaki menüden istediğiniz bölüme geçiş yapabilirsiniz.</p>
-            <div class="button-group">
-                <a href="homework.html" class="button">Ödevleri Görüntüle</a>
-                <a href="reminders.html" class="button">Hatırlatıcıları Görüntüle</a>
-                <a href="schedule.html" class="button">Ders Programını Görüntüle</a>
-            </div>
+            <h2>Giriş Yap</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="username">Kullanıcı Adı</label>
+                    <input type="text" id="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Şifre</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="button">Giriş Yap</button>
+            </form>
         </section>
     </main>
 
-    <footer>
+    <footer class="footer">
         <p>&copy; 2024 Öğrenci Bilgilendirme Sistemi</p>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                // Yan menüyü açma ve kapatma işlevi
+                function toggleMenu() {
+                    const sidebar = document.getElementById('sidebar');
+                    sidebar.classList.toggle('sidebar-open');
+                }
+        
+                // Menü düğmesine tıklama ile menüyü açma
+                document.getElementById('menu-button').addEventListener('click', toggleMenu);
+        
+                // Yan menü dışında bir yere tıklanınca menüyü kapatma
+                document.addEventListener('click', (event) => {
+                    const sidebar = document.getElementById('sidebar');
+                    const menuButton = document.getElementById('menu-button');
+        
+                    if (sidebar.classList.contains('sidebar-open') &&
+                        !sidebar.contains(event.target) &&
+                        event.target !== menuButton) {
+                        sidebar.classList.remove('sidebar-open');
+                    }
+                });
+            });
+        </script>
+        
     </footer>
 
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service-worker.js')
-                    .then(registration => {
-                        console.log('ServiceWorker kayıt edildi:', registration);
-                    })
-                    .catch(error => {
-                        console.log('ServiceWorker kayıt hatası:', error);
-                    });
-            });
-        }
-    </script>
     <script src="js/script.js"></script>
 </body>
 </html>

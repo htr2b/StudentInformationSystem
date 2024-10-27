@@ -5,22 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hatırlatıcılar - Öğrenci Bilgilendirme Sistemi</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="manifest" href="manifest.json">
 </head>
 <body>
-    <header>
-        <h1>Hatırlatıcılar</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Ana Sayfa</a></li>
-                <li><a href="homework.html">Ödevler</a></li>
-                <li><a href="schedule.html">Ders Programı</a></li>
-            </ul>
-        </nav>
+    <header class="header">
+        <button id="menu-button" class="menu-button">☰</button>
+        <h1 class="header-title">Hatırlatıcılar</h1>
     </header>
 
+    <!-- Yan Menü -->
+    <aside id="sidebar" class="sidebar">
+        <nav>
+            <h2>Menü</h2>
+            <ul class="nav-list">
+                <li><a href="index.html" class="button">Ana Sayfa</a></li>
+                <li><a href="homework.html" class="button">Ödevler</a></li>
+                <li><a href="schedule.html" class="button">Ders Programı</a></li>
+            </ul>
+        </nav>
+    </aside>
+
     <main>
-        <div class="card">
+        <section class="card">
             <h2>Hatırlatıcı Yönetimi</h2>
             <form id="reminder-form">
                 <div class="form-group">
@@ -35,21 +40,44 @@
                     <label for="reminder-date">Hatırlatma Tarihi</label>
                     <input type="date" id="reminder-date" required>
                 </div>
-                <button type="submit" class="button" id="submit-button">Hatırlatıcı Ekle</button>
-                <button type="button" class="button" id="cancel-button" style="display: none;">İptal</button>
+                <button type="submit" class="button">Hatırlatıcı Ekle</button>
             </form>
-        </div>
+        </section>
 
-        <div class="card">
+        <section class="card">
             <h2>Mevcut Hatırlatıcılar</h2>
             <div id="reminder-container">
                 <!-- Hatırlatıcı listesi buraya eklenecek -->
             </div>
-        </div>
+        </section>
     </main>
 
-    <footer>
+    <footer class="footer">
         <p>&copy; 2024 Öğrenci Bilgilendirme Sistemi</p>
     </footer>
+
+    <!-- Yan Menüyü Açma-Kapatma İşlevi -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            function toggleMenu() {
+                const sidebar = document.getElementById('sidebar');
+                sidebar.classList.toggle('sidebar-open');
+            }
+
+            document.getElementById('menu-button').addEventListener('click', toggleMenu);
+
+            document.addEventListener('click', (event) => {
+                const sidebar = document.getElementById('sidebar');
+                const menuButton = document.getElementById('menu-button');
+
+                if (sidebar.classList.contains('sidebar-open') &&
+                    !sidebar.contains(event.target) &&
+                    event.target !== menuButton) {
+                    sidebar.classList.remove('sidebar-open');
+                }
+            });
+        });
+    </script>
+    <script src="js/reminders.js"></script>
 </body>
 </html>

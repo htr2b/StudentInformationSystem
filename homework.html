@@ -5,24 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ödevler - Öğrenci Bilgilendirme Sistemi</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="manifest" href="manifest.json">
 </head>
 <body>
-    <header>
-        <h1>Ödevler</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Ana Sayfa</a></li>
-                <li><a href="reminders.html">Hatırlatıcılar</a></li>
-                <li><a href="schedule.html">Ders Programı</a></li>
-            </ul>
-        </nav>
+    <header class="header">
+        <button id="menu-button" class="menu-button">☰</button>
+        <h1 class="header-title">Ödevler</h1>
     </header>
 
+    <!-- Yan Menü -->
+    <aside id="sidebar" class="sidebar">
+        <nav>
+            <h2>Menü</h2>
+            <ul class="nav-list">
+                <li><a href="index.html" class="button">Ana Sayfa</a></li>
+                <li><a href="reminders.html" class="button">Hatırlatıcılar</a></li>
+                <li><a href="schedule.html" class="button">Ders Programı</a></li>
+            </ul>
+        </nav>
+    </aside>
+
     <main>
-        <div class="card">
+        <section class="card">
             <h2>Ödev Yönetimi</h2>
-            <form id="homework-form">
+            <form id="homework-form" class="form">
+                <!-- Gizli Ödev ID alanı -->
+                <input type="hidden" id="homework-id">
                 <div class="form-group">
                     <label for="subject">Ders</label>
                     <input type="text" id="subject" required>
@@ -35,21 +42,45 @@
                     <label for="due-date">Son Teslim Tarihi</label>
                     <input type="date" id="due-date" required>
                 </div>
-                <button type="submit" class="button" id="submit-button">Ödev Ekle</button>
-                <button type="button" class="button" id="cancel-button" style="display: none;">İptal</button>
+                <button type="submit" id="submit-button" class="button">Ödev Ekle</button>
+                <button type="button" id="cancel-button" class="button" style="display: none;">İptal</button>
             </form>
-        </div>
+        </section>
 
-        <div class="card">
+        <section class="card">
             <h2>Mevcut Ödevler</h2>
             <div id="homework-container">
                 <!-- Ödev listesi buraya eklenecek -->
             </div>
-        </div>
+        </section>
     </main>
 
-    <footer>
+    <footer class="footer">
         <p>&copy; 2024 Öğrenci Bilgilendirme Sistemi</p>
     </footer>
+
+    <!-- Yan Menüyü Açma-Kapatma İşlevi -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            function toggleMenu() {
+                const sidebar = document.getElementById('sidebar');
+                sidebar.classList.toggle('sidebar-open');
+            }
+
+            document.getElementById('menu-button').addEventListener('click', toggleMenu);
+
+            document.addEventListener('click', (event) => {
+                const sidebar = document.getElementById('sidebar');
+                const menuButton = document.getElementById('menu-button');
+
+                if (sidebar.classList.contains('sidebar-open') &&
+                    !sidebar.contains(event.target) &&
+                    event.target !== menuButton) {
+                    sidebar.classList.remove('sidebar-open');
+                }
+            });
+        });
+    </script>
+    <script src="js/homework.js"></script>
 </body>
 </html>
