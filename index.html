@@ -15,7 +15,6 @@
         <h1 class="header-title">Öğrenci Bilgilendirme Sistemi</h1>
     </header>
 
-    <!-- Yan Menü -->
     <aside id="sidebar" class="sidebar">
         <nav>
             <h2>Menü</h2>
@@ -27,7 +26,6 @@
         </nav>
     </aside>
 
-    <!-- Giriş Yap İçeriği -->
     <main>
         <section class="card">
             <h2>Giriş Yap</h2>
@@ -49,16 +47,13 @@
         <p>&copy; 2024 Öğrenci Bilgilendirme Sistemi</p>
         <script>
             document.addEventListener('DOMContentLoaded', () => {
-                // Yan menüyü açma ve kapatma işlevi
                 function toggleMenu() {
                     const sidebar = document.getElementById('sidebar');
                     sidebar.classList.toggle('sidebar-open');
                 }
         
-                // Menü düğmesine tıklama ile menüyü açma
                 document.getElementById('menu-button').addEventListener('click', toggleMenu);
         
-                // Yan menü dışında bir yere tıklanınca menüyü kapatma
                 document.addEventListener('click', (event) => {
                     const sidebar = document.getElementById('sidebar');
                     const menuButton = document.getElementById('menu-button');
