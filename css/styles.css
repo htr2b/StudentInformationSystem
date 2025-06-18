@@ -1,4 +1,3 @@
-/* Renk Değişkenleri */
 :root {
     --primary-color: #1c3a63;
     --secondary-color: #334f7b;
@@ -11,7 +10,6 @@
     --gradient-color: linear-gradient(135deg, #1c3a63, #2c508e);
 }
 
-/* Genel Yapı */
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
@@ -21,7 +19,6 @@ body {
     line-height: 1.6;
 }
 
-/* Header ve Navigation */
 .header {
     display: flex;
     align-items: center;
@@ -53,12 +50,10 @@ body {
     outline: none;
 }
 
-/* Yan Menü - Sidebar */
-/* Yan Menü - Sidebar */
 .sidebar {
     position: fixed;
     top: 0;
-    left: -260px; /* Menü kapalı iken 40px kadar görünür kalsın */
+    left: -260px;
     width: 300px;
     height: 100%;
     background-color: var(--primary-color);
@@ -71,7 +66,7 @@ body {
 
 .sidebar h2,
 .sidebar .nav-list {
-    display: none; /* Kapalı iken içerik görünmez */
+    display: none;
 }
 
 .sidebar-open {
@@ -80,7 +75,7 @@ body {
 
 .sidebar-open h2,
 .sidebar-open .nav-list {
-    display: block; /* Açıldığında içerik görünür */
+    display: block;
 }
 
 .sidebar h2 {
@@ -117,7 +112,6 @@ body {
 }
 
 
-/* Kart ve Ana İçerik */
 .card {
     background-color: var(--card-bg-color);
     border-radius: 10px;
@@ -134,7 +128,6 @@ body {
     font-size: 1.6em;
 }
 
-/* Form Elemanları */
 .form-group {
     margin-bottom: 15px;
     text-align: left;
@@ -165,7 +158,6 @@ body {
     outline: none;
 }
 
-/* Düğme Stilleri */
 .button {
     background-color: var(--button-color);
     color: #ffffff;
@@ -187,7 +179,6 @@ body {
     transform: translateY(0);
 }
 
-/* Footer */
 .footer {
     background-color: var(--footer-bg-color);
     color: #ffffff;
@@ -196,28 +187,4 @@ body {
     font-size: 0.9em;
     box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
     margin-top: 2rem;
-}
-
-/* Responsive Medya Sorguları */
-@media (max-width: 768px) {
-    .header-title {
-        font-size: 1.8em;
-    }
-
-    .menu-button {
-        left: 15px;
-    }
-
-    .sidebar h2 {
-        font-size: 1.5em;
-    }
-
-    .card {
-        width: 90%;
-    }
-
-    .button {
-        width: 100%;
-        padding: 15px;
-    }
 }
